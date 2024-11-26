@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style = "background-color: black; color:white;">
+    
+    <h3>Languages</h3>
+    <ul class="list">
+        <li>Python </li>
+        <li>HTML </li>
+    </ul>
+    
+</body>
+<script>
+    //Add element inside the body inside a list
+    function addElement(new_list){
+        var newElement = document.createElement("li");
+        newElement.innerHTML = `${new_list}`
+        document .querySelector('.list').appendChild(newElement);
+    }
+
+    addElement("C++")
+    addElement("C#")   
+    
+    
+    // optimized way
+    function addElementOpt(new_list){
+        var newElement = document.createElement("li");
+        newElement.appendChild(document.createTextNode(`${new_list}`));
+        document.querySelector('.list').appendChild(newElement);
+    }
+
+    addElementOpt("Java")
+    addElementOpt("JavaScript")
+
+//EDIT
+     const edit = document.querySelector("li:nth-child(4)");
+    //  edit.textContent = "go language";
+    // 2nd way
+    const edit2 = document.createElement("li");
+    edit2.innerHTML = "go language"
+    edit.replaceWith(edit2);
+
+    //edit 6 position
+    const edit6 = document.querySelector("li:nth-child(6)");
+    const change = document.createElement("li")
+    change. textContent="swift"
+    edit6.replaceWith(change);
+
+
+//DELETE
+    const del = document.querySelector("li:nth-child(5)");
+    del.remove();
+    
+</script>
+</html>
