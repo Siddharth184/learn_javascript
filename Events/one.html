@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event in javascript</title>
+</head>
+<body style="background-color: #414141; color: aliceblue">
+    
+    <h2>This is my Images</h2>
+    <div>
+        <ul id="image">
+            <li><img width="200px" id="photo1" src="./image/IMG_20220131_214857_378.jpg" alt=""></li>
+            <li><img width="200px" id="photo2" src="./image/IMG_20220201_194723_615.jpg" alt=""></li>
+            <li><img width="200px" id="photo3" src="./image/IMG_20220203_163303_943.jpg" alt="" onclick="alert('This is your 3rd image')"></li>
+            <li><a id="link"  href="https://www.google.com/"> click me </a></li>
+        </ul>
+    </div>
+</body>
+
+<script>
+
+     // attachEvent()
+    // jQuery - on
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+
+    // //this method is not recommended
+    document.getElementById("photo1").onclick = function(){
+        alert("This is your first image");
+    }
+    //this method is actually effecient and  recommended
+    document.getElementById("photo2").addEventListener("click", function(e)
+    {
+        alert("This is your second image")
+        console.log(e)
+        e.stopPropagation();
+        
+
+    }, false) //true is for capturing phase , false is for bubbling phase;
+     
+     document.querySelector("link").addEventListener("click", function(e){
+        e.priventDefault();
+        e.stopPropagation();
+        console.log("this is your link");
+     });
+
+
+     // remove photo 
+    //   document.querySelector("#image").addEventListener("click", function(e){
+    //     console.log(e.target.tagName)
+    //     if(e.target.tagName == "IMG"){
+    //         let removephoto = e.target.parentNode;
+    //         removephoto.remove();
+    //     };
+
+    //  })
+
+        
+
+
+</script>
+</html>
